@@ -1,17 +1,90 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>움직이는 애니메이션</title>
-    <!-- ✅ p5.js 라이브러리 연결 -->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-  </head>
-  <body>
-    <h1>이거는 ㅇㅇ 많이해봐야될듯</h1>
-    <p>맥으로도 해봤는데 좀 많이 어려움</p>
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile - Runa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 40px;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 20px;
+    }
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .description {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .contact {
+      margin-top: 20px;
+    }
+    a {
+      color: #1a0dab;
+      text-decoration: none;
+    }
+    .contact-form {
+      margin-top: 40px;
+      background-color: #eee;
+      padding: 20px;
+    }
+    .contact-form input {
+      margin: 5px;
+      padding: 5px;
+    }
+    .contact-form input[type="submit"] {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- ✅ p5.js 스케치 코드 연결 -->
-    <script src="sketch.js"></script>
-  </body>
+  <h1>My Profile</h1>
+  
+  <!-- 프로필 이미지 -->
+  <img src="profile.png" alt="Profile" class="profile-img">
+
+  <!-- 이름 -->
+  <div class="name">Runa 🦊</div>
+
+  <!-- 설명 -->
+  <div class="description">
+    Hello! I'm teaching three areas: planning, design, and coding.<br>
+    In my 15th year in the field, I'm currently training a product designer at [goorm].
+  </div>
+
+  <!-- 연락처 -->
+  <div class="contact">
+    <p>Contact me at:</p>
+    <a href="mailto:runa.uxlabs@gmail.com">runa.uxlabs@gmail.com</a> &nbsp; 
+    <a href="tel:+821012345678">+82 10-1234-5678</a>
+  </div>
+
+  <!-- 연락 폼 -->
+  <div class="contact-form">
+    <h3>Contact <span style="background: lightgray;">Me</span></h3>
+    <form>
+      Name: <input type="text" name="name">
+      Email: <input type="email" name="email">
+      Message: <input type="text" name="message">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+</body>
 </html>
+
