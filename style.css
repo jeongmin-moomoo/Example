@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: hwb(0 100% 0%);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 50px;
+}
+
+.card {
+  width: 600px;
+  background-color: white;
+  text-align: left;
+  position: relative;
+}
+
+.cover-image {
+  width: 100%;
+  height: auto;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  position: absolute;
+  top: 220px;
+  left: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.info {
+  margin-top: 80px;
+  padding: 20px 30px 30px 30px;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.info p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  white-space: pre-line;
+}
