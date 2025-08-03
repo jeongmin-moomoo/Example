@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>프로필 카드</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>프로필 페이지</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-<img src="바다.jpg" alt="배경 이미지" class="cover-image">
-<img src="내얼굴.png" alt="프로필 이미지" class="profile-image">
 
+  <div class="cover"></div>
 
-    <div class="info">
-      <h2>Moozi_dan_</h5>
-    
-      
+  <div class="profile">
+    <img src="내얼굴.png" alt="프로필 사진" />
+    <div class="profile-info">
+      <h2>Moozi_dan_</h2>
+      <p>첫번째 줄입니다<br>두번쨰 줄입니다<br>세번째 줄입니다</p>
     </div>
-     <p style="margin-left: 100px;">
-        프로필 택스트<br>
-        프로필 택스트<br>
-        프로필 택스트
-      </p>
   </div>
+
+  <!-- 글 카드 -->
+  <div class="post">
+    <div class="post-thumbnail"></div>
+    <div class="post-content">
+      <h2>글 제목 예시 1</h2>
+      <p>이곳은 요약 글입니다. 어떤 이야기가 들어갈지 대략적으로 보여주는 영역입니다.</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-thumbnail"></div>
+    <div class="post-content">
+      <h2>글 제목 예시 2</h2>
+      <p>두 번째 카드도 같은 스타일로 반복됩니다. 글이 길어지면 줄임 처리를 해도 됩니다.</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-thumbnail"></div>
+    <div class="post-content">
+      <h2>글 제목 예시 3</h2>
+      <p>세 번째 카드입니다. 이미지가 없으면 배경색으로만 보여집니다.</p>
+    </div>
+  </div>
+
 </body>
 </html>
