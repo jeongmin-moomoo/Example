@@ -1,80 +1,12 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  background-color: #f2f2f2;
+.fade-message {
+  opacity: 0;
+  color: tomato;
+  font-size: 0.9rem;
+  transition: opacity 0.5s ease;
+  margin-top: 10px;
+  height: 1em;
 }
 
-.cover {
-  width: 100%;
-  height: 350px;
-  background-image: url('바다.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background-color: white;
-}
-
-.profile img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin-right: 15px;
-  object-fit: cover;
-  margin-top: -150px;
-    /* 스트로크 추가 */
-  border: 6px solid white; /* 굵기, 색상 */
-  box-shadow: 0 0 4px rgba(243, 243, 243, 0.1); /* 부드러운 그림자도 선택 */
-
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.profile-info h2 {
-  margin: 0;
-}
-
-.profile-info p {
-  margin: 4px 0 0 0;
-  font-size: 16px;
-  color: 222222(0, 0%, 13%);
-}
-
-.post {
-  background-color: white;
-  padding: 15px;
-  margin: 15px 20px;
-  border-radius: 16px;
-  display: flex;
-  gap: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.post-thumbnail {
-  width: 160px;
-  height: 160px;
-  background-color: #ccc;
-  flex-shrink: 0;
-    /* ✅ 추가: 둥근 모서리 */
-  border-radius: 16px;
-  overflow: hidden; /* 이미지가 잘리지 않게 하려면 꼭 필요 */
-}
-
-.post-content h2 {
-  margin-top: 0;        /* 위쪽 마진 제거 */
-  margin-bottom: 6px;   /* 아래쪽 마진은 살짝 유지 */
-  font-size: 24px;
-  line-height: 1.3;
-}
-.post-content p {
-  margin: 0;
-  color: #555;
-  font-size: 16px;
+.fade-message.show {
+  opacity: 1;
 }
