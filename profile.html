@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Preview</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <style>
+    :root {
+      --gap: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+   
+    
+    }
+
+    .navbar a button.active {
+      background-color: white;
+      color: #333;
+    }
+
+    .navbar a button:hover {
+      background-color: #cccccc;
+      color: white;
+    }
+
+    /* 🔹 메인 콘텐츠 */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      display: flex;
+      width: 90%;
+      max-width: 1100px;
+      background: #171717;
+      padding: calc(var(--gap) * 2);
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+      justify-content: space-between;
+    }
+
+    .left {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      min-width: 280px;
+    }
+
+    .profile-pic {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 6px solid #dddddd;
+      object-fit: cover;
+      align-self: flex-start;
+    }
+
+    .name {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .message-preview {
+      min-height: 80px;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    .contact {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .right {
+      flex: 0 0 340px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    form {
+      display: grid;
+      gap: var(--gap);
+      width: 100%;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      font-size: 1rem;
+      background: #4d90fe;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #357ae8;
+    }
+
+   
+    .footer .porfile-item {
+      margin-bottom: 4px;
+    }
+
+  
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .right {
+        max-width: 100%;
+      }
+
+      .profile-pic {
+        align-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 내비게이션 -->
+  <nav class="navbar">
+    <button>메인아이콘</button>
+    <a href="index.html"><button>Main</button></a>
+    <a href="project.html"><button class="active">Project</button></a>
+    <a href="me.html"><button>Me</button></a>
+   
+    
+  </nav>
+   <div class="divider"></div>
+  <!-- 🔹 본문 콘텐츠 -->
+  <main>
+    <div class="card">
+      <!-- 왼쪽 미리보기 -->
+      <div class="left">
+        <img src="프로필.png" alt="Profile Photo" class="profile-pic" />
+        <h1 class="name" id="previewName">Moozi_dan_</h1>
+        <div class="contact">
+          <span class="contact-title">Contact me at:</span>
+          <span class="contact-email" id="previewEmail">example@example.com</span>
+          <span class="contact-phone" id="previewPhone">010-0000-0000</span>
+         <div class="message-preview" id="previewMessage">
+This is the designated area for writing introductions
+        </div>
+      </div>
+      </div>
+
+      <!-- 오른쪽 입력 폼 -->
+      <div class="right">
+        <form id="profileForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" maxlength="30" placeholder="Enter your name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" maxlength="50" placeholder="Enter your email" required />
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" maxlength="20" placeholder="Enter your phone number" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" maxlength="200" placeholder="Feel free to write your message" required></textarea>
+
+          <button type="submit" id="submitBtn">Apply</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- 🔹 하단 푸터 -->
+  <footer class="footer">
+    <div class="porfile-item"><a href="https://www.instagram.com/moozi_dan_/" target="_blank">Moozi_dan_</a></div>
+    <div class="porfile-item"><a href="mailto:wjdals410518@gmail.com">wjdals410518@gmail.com</a></div>
+    <div class="porfile-item"><a href="tel:01083552031">010-8355-2031</a></div>
+    <div>화이팅 </div>
+  </footer>
+
+  <!-- 🔹 스크립트 -->
+  <script>
+    const form = document.getElementById("profileForm");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const messageInput = document.getElementById("message");
+
+    const previewName = document.getElementById("previewName");
+    const previewEmail = document.getElementById("previewEmail");
+    const previewPhone = document.getElementById("previewPhone");
+    const previewMessage = document.getElementById("previewMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      nameInput.setCustomValidity("");
+      emailInput.setCustomValidity("");
+      phoneInput.setCustomValidity("");
+      messageInput.setCustomValidity("");
+
+      let isValid = true;
+
+      if (!nameInput.value.trim()) {
+        nameInput.setCustomValidity("Please enter your name.");
+        nameInput.reportValidity();
+        isValid = false;
+      } else if (!emailInput.value.trim()) {
+        emailInput.setCustomValidity("Please enter your email.");
+        emailInput.reportValidity();
+        isValid = false;
+      } else if (!phoneInput.value.trim()) {
+        phoneInput.setCustomValidity("Please enter your phone number.");
+        phoneInput.reportValidity();
+        isValid = false;
+      } else if (!messageInput.value.trim()) {
+        messageInput.setCustomValidity("Please write a message.");
+        messageInput.reportValidity();
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      previewName.textContent = nameInput.value.trim();
+      previewEmail.textContent = emailInput.value.trim();
+      previewPhone.textContent = phoneInput.value.trim();
+      previewMessage.innerHTML = messageInput.value.trim().replace(/\n/g, "<br>");
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
