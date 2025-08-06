@@ -1,8 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 
 .navbar {
@@ -47,7 +42,7 @@ body {
   animation: gradientMove 15s ease infinite;
   font-family: sans-serif;
   color: #ffffff;
-  padding-bottom: 60px; /* 푸터 높이만큼 여백 확보 */
+  padding-bottom: 60px;
 }
 
 
@@ -127,13 +122,17 @@ body {
   font-size: 1.5rem;                     /* 글자 크기 */
   font-weight: 600;                      /* 글자 두께 */
   color: #cccccc;                        /* 글자 색상 (밝은 파랑) */
+  margin-top: 16px;
   margin-bottom: 16px;                   /* 아래 요소와의 간격 */
   text-align: center;                    /* 가운데 정렬 (필요시) */
+
 }
 .tools {
   display: flex;
-  gap: 10px;
+  gap: 32px;
   justify-content: center;
+
+ 
 }
 
 .tool {
@@ -141,18 +140,20 @@ body {
   height: 6px;
   background: #ccc;
   border-radius: 6px;
+ 
+  
 }
 
 /* 툴 이미지 스타일 */
 .tool-image {
-  display: block; /* 이미지를 블록 요소로 만들어 줄바꿈 허용 + 가운데 정렬 가능하게 함 */
-  margin: 10px auto 0; /* 위쪽 여백 10px, 좌우 자동(가운데 정렬), 아래 여백 0 */
-width: 100%;            /* 부모 너비를 기준으로 확장하되 */
+  width: 100%;            /* 부모 너비를 기준으로 확장하되 */
   max-width: 80px;        /* ✅ 너무 커지지 않도록 제한 */
   min-width: 50px;        /* ✅ 너무 작아지지 않도록 제한 */
   border-radius: 16px; /* 이미지 모서리를 둥글게 처리 (카드 느낌) */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.16); /* 부드러운 그림자 효과 (흐릿하게) */
   border: 2px solid #cccccc; /* 연회색 테두리를 이미지에 추가 */
+
+  
 }
 
 main {
@@ -213,43 +214,6 @@ body {
 
 
 
-/* 갤러리 전체 컨테이너 */
-.gallery-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* 이미지들을 2열로 나열하는 그리드 */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* 2열 구성 */
-}
-
-/* 개별 이미지 스타일 */
-.gallery-item {
-  width: 100%;
-  aspect-ratio: 1 / 1;     /* 정사각형 이미지 유지 */
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
-}
-
-/* 이미지에 마우스 올렸을 때 확대 효과 */
-.gallery-item:hover {
-  transform: scale(1.03);  /* 마우스 올렸을 때 약간 확대 */
-}
-
-h1{
-    font-size: 48px;
-    color: #ccc;
-    text-align: center;
-    margin-top: 16px;       /* 위쪽 여백 */
-    margin-bottom: 0px;    /* 아래쪽 여백 */
-    font-family: 'Pretendard', bold; /* 원하는 폰트 */
-}
-
 
 .porfile-item a{
   color: inherit;
@@ -283,3 +247,4 @@ h1{
   text-align: left;
   ;
 }
+

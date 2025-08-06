@@ -18,7 +18,14 @@
 
    
     
-    }
+  .profile-header{
+     text-align: center;/* 중앙 정렬 */
+    font-size: 36px;/* 글자 크기 */
+    color: #ccc;/* 글자 색상 */
+    margin-top: 20px;/* 상단 여백 */
+    margin-bottom: 20px;/* 하단 여백 */  
+    font-weight: bold;/* 글자 두껍게 */
+  }
 
     .navbar a button.active {
       background-color: white;
@@ -161,6 +168,9 @@
         align-self: center;
       }
     }
+
+
+
   </style>
 </head>
 <body>
@@ -169,18 +179,23 @@
   <nav class="navbar">
     <button>메인아이콘</button>
     <a href="index.html"><button>Main</button></a>
-    <a href="project.html"><button class="active">Project</button></a>
+    <a href="project.html"><button>Project</button></a>
     <a href="me.html"><button>Me</button></a>
    
     
   </nav>
    <div class="divider"></div>
+
+    <div class="profile-header">Profile</div>
+
+
+
   <!-- 🔹 본문 콘텐츠 -->
   <main>
     <div class="card">
       <!-- 왼쪽 미리보기 -->
       <div class="left">
-        <img src="프로필.png" alt="Profile Photo" class="profile-pic" />
+        <img src="/exp/사진/프로필.png" alt="Profile Photo" class="profile-pic" />
         <h1 class="name" id="previewName">Moozi_dan_</h1>
         <div class="contact">
           <span class="contact-title">Contact me at:</span>

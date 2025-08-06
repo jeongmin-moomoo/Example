@@ -6,6 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>포트폴리오 레이아웃</title>
   <link rel="stylesheet" href="portfolio.css" />
+
+  <style>
+  .project-header {
+   text-align: center;/* 중앙 정렬 */
+    font-size: 36px;/* 글자 크기 */
+    color: #ccc;/* 글자 색상 */
+    margin-top: 20px;/* 상단 여백 */
+    margin-bottom: 20px;/* 하단 여백 */  
+    font-weight: bold;/* 글자 두껍게 */
+
+  }
+
+    /* 갤러리 전체 컨테이너 */
+  .gallery-container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding-bottom: 32px;
+ 
+}
+
+/* 이미지들을 열로 나열하는 그리드 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 열 구성 */;
+  gap: 16px; /* 이미지 간격 */
+}
+
+/* 개별 이미지 스타일 */
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* 정사각형 이미지 유지 */
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  border-radius: 16px;
+  /* border: 4px solid #222; 테두리 추가 */
+
+}
+
+.gallery-item:hover {
+  transform: scale(1.1);  /* 마우스 올리면 확대 */
+}
+
+    
+  </style>
 </head>
 <body>
   <!-- 상단 내비게이션 -->
@@ -21,16 +65,31 @@
    <div class="divider"></div>
 
   <!-- 프로젝트 섹션 -->
-     <h1>Project</h1>
+     <div class="project-header">Project</div>
     <div class="gallery-container">
+
+
     <!-- 이미지 카드들 -->
     <div class="gallery-grid">
-      <img src="완벽히 이해.png" class="gallery-item" />
-      <img src="완벽히 이해.png" class="gallery-item" />
-      <img src="완벽히 이해.png" class="gallery-item" />
-      <img src="완벽히 이해.png" class="gallery-item" />
-      <img src="완벽히 이해.png" class="gallery-item" />
-      <img src="완벽히 이해.png" class="gallery-item" />
+      <a href="profile.html">
+      <img src="/exp/사진/프로필.png" class="gallery-item" />
+      </a>
+      <a href="gallery.html">
+      <img src="https://cataas.com/cat?random=1" class="gallery-item" />
+      </a>
+      <img src="/exp/사진/막내1.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내2.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내3.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내4.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내5.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내6.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내8.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내9.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내17.jpg" class="gallery-item" />
+      <img src="/exp/사진/막내16.jpg" class="gallery-item" />
+      <img src="/exp/사진/완벽히 이해.png" class="gallery-item" />
+      <img src="/exp/사진/완벽히 이해.png" class="gallery-item" />
+      <img src="/exp/사진/완벽히 이해.png" class="gallery-item" />
   </div>
 
 </div>
