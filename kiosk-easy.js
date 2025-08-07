@@ -1,9 +1,10 @@
 // 장바구니 정보를 저장할 객체 (예: { Coffee: { price: 3000, count: 2 }, ... })
 const cart = {};
 
-
 // HTML에서 메뉴 영역을 가져옴 (버튼들이 있는 div)
 const menu = document.querySelector("#menu");
+//document.querySelector(selector)
+//역할: CSS 선택자 형식으로 HTML 요소 하나를 가져옵니다.
 
 // 장바구니 항목들을 보여줄 div
 const cartDisplay = document.querySelector("#cart");
@@ -11,18 +12,24 @@ const cartDisplay = document.querySelector("#cart");
 // 총액(합계 금액)을 표시할 span 요소
 const totalDisplay = document.querySelector("#total");
 
-
-// 메뉴에서 버튼이 클릭되었을 때 실행되는 이벤트 핸들러 등록
+// 메뉴에서 버튼이 클릭되었을 때 실행되는 이벤트 핸들러 등록 //클릭시 실행될코드
 menu.addEventListener("click", (event) => {
-    // 어떤 요소를 클릭했는지 확인 (디버깅용 로그)
+    //element.addEventListener("이벤트이름", 함수)
+    //역할: 특정 이벤트(예: 클릭)가 발생했을 때 어떤 동작을 할지 지정.
+
     console.log(event.target.tagName);
 
     // 만약 클릭된 요소가 버튼이면
     if(event.target.tagName === "BUTTON") {
+       //=클릭된 요소의 태그 이름을 대문자로 변환
 
         // 해당 버튼에서 data-name 속성 값을 가져옴 (예: "Coffee")
         const name = event.target.getAttribute("data-name");
-
+        //event.target
+        //역할: 실제로 클릭된 HTML 요소를 가리킴
+        //event.target.tagName
+        //역할: 클릭된 요소의 태그 이름을 대문자로 반환.
+    
         // 해당 버튼에서 data-price 속성 값을 가져옴 (문자열 형태, 예: "3000")
         const price = event.target.getAttribute("data-price");
 
@@ -43,8 +50,6 @@ menu.addEventListener("click", (event) => {
         console.log(cart);
     }
 });
-
-
 
 // 장바구니 내용과 총액을 실제 HTML에 출력해주는 함수
 function updateCart() {
@@ -68,17 +73,18 @@ function updateCart() {
 
         // 새 div 요소를 생성해서 하나의 항목을 표시할 준비
         const item = document.createElement("div");
+        //해당요소안에 텍스트를 넣습니다
 
         // div 안에 들어갈 텍스트 설정
         // 예: "Coffee x2 (6,000원)"
         item.textContent = `${name} x${count} (${(price * count).toLocaleString()}원)`;
-
+        //parent.appendChild(child)
+        //역할: 부모 요소에 자식 요소를 추가.
+        
         // 완성된 item div를 장바구니 영역에 추가
         cartDisplay.appendChild(item);
         // 위 코드는 total 금액을 세자리 콤마 포함해서 보여줌 (예: 12,000)
         totalDisplay.textContent = total.toLocaleString(); 
         
     }
-
-
 }
