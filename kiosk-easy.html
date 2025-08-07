@@ -1,0 +1,44 @@
+<!DOCTYPE html> <!-- 현재 문서가 HTML5 문서임을 선언 -->
+<html lang="en"> <!-- HTML 언어 설정: 영어 -->
+
+<head>
+    <meta charset="UTF-8"> <!-- 문자 인코딩 설정: 한글, 영어 등 모든 글자가 깨지지 않게 함 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 모바일 반응형 설정: 화면 너비에 맞게 보여줌 (스마트폰에서도 잘 보이게) -->
+
+    <title>Kiosk Order System(easy)</title>
+    <!-- 브라우저 탭에 표시될 제목 -->
+</head>
+
+<body> <!-- 실제 웹페이지의 내용이 들어가는 부분 -->
+
+    <h1>Simple Kiosk</h1> 
+    <!-- 페이지의 메인 제목 -->
+
+    <div id="menu">
+        <!-- 메뉴 버튼들이 들어가는 영역 (id를 통해 JavaScript에서 접근할 수 있음) -->
+
+        <button data-name="Coffee" data-price="3000">Coffee (3,000원)</button>
+        <!-- 커피 버튼: 이름은 "Coffee", 가격은 3000원   Coffee라고 보여짐-->
+
+        <button data-name="Tea" data-price="2500">Tea (2,500원)</button>
+        <!-- 차 버튼: 이름은 "Tea", 가격은 2500원   Tea라고 보여짐-->
+
+        <button data-name="Cake" data-price="8000">Cake (8,000원)</button>
+        <!-- 케이크 버튼: 이름은 "Cake", 가격은 8000원    Cake라고 보여짐-->
+    </div>
+
+    <h2> Cart </h2>
+    <!-- 장바구니 표시 영역의 제목 -->
+
+    <div id="cart"></div>
+    <!-- 실제로 선택한 항목들이 추가되는 영역 (JavaScript로 동적으로 채워짐) -->
+
+    <p>Total:<span id="total">0</span>원</p>
+    <!-- 총합을 표시하는 부분. JavaScript에서 숫자만 업데이트할 수 있게 span 사용 -->
+
+    <script src="/exp/kiosk-easy.js"></script>
+    <!-- JavaScript 코드 파일을 불러오는 부분. 실제 동작(버튼 클릭 처리 등)은 이 스크립트에서 수행함 -->
+
+</body>
+</html>
