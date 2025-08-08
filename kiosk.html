@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>정민이의 상점</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Swiper CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #1e1e1e;
+      overflow-x:hidden
+    }
+
+    .swiper-pagination-bullets {
+    display: none;
+    }
+
+    header {
+      text-align: center;
+      background-color: #1e1e1e;
+      color: #fff;
+      padding: 1em;
+      font-size: 1.8em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: #1e1e1e;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .swiper {
+      padding: 0px;
+      overflow: visible;
+      padding-bottom: 36px;
+    }
+
+    
+    .swiper-slide {
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 600px;
+      height: 350PX;
+    }
+
+    .swiper-slide img {
+      width: auto;
+      max-width: 200px;
+      min-width: 100px;
+      max-height: 200px;
+      min-height: 100px;
+      height: auto;
+      object-fit: contain;
+
+    }
+
+    .swiper-slide h3 {
+      margin: 10px 0 5px;
+    }
+
+    .swiper-slide p {
+      margin: 0 0 10px;
+    }
+
+    .swiper-slide button {
+      padding: 5px 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .cart {
+      background: #1e1e1e;
+      padding: 15px;
+      border-top: 2px solid #1e1e1e;
+      position: sticky;
+      bottom: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      color: #fff;
+      font-size: 38px;
+    }
+
+    .cart-controls button {
+      margin-left: 5px;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 10px;
+      color: #fff
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #b3e5f8;
+      color: rgb(0, 0, 0);
+      font-size: 1em;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      
+    }
+
+    
+
+  </style>
+</head>
+<body>
+
+  <header>정민PC</header>
+
+  <nav>
+    <button data-category="all">전체</button>
+    <button data-category="drink">음료</button>
+    <button data-category="dessert">디저트</button>
+    <button data-category="hotfood">핫푸드</button>
+  </nav>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper" id="product-list">
+      <!-- JS로 제품이 여기에 추가됨 -->
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="cart">
+    <div id="cart-items"></div>
+    <div class="total">총액: <span id="total">0</span>원</div>
+    <button id="checkout-btn" class="checkout-btn">결제하기</button>
+  </div>
+
+  <script>
+    const products = [
+      { name: "콜라", price: 1500, category: "drink", image: "사진/펩시.jpg"  },
+      { name: "사이다", price: 1500, category: "drink", image: "사진/사이다.jpg" },
+      { name: "아이스크림", price: 2000, category: "dessert", image: "사진/와.jpg" },
+      { name: "붕어빵", price: 2500, category: "dessert", image: "사진/붕어빵.jpg" },
+      { name: "라면", price: 4000, category: "hotfood", image: "사진/라면.jpg" },
+      { name: "핫도그", price: 3000, category: "hotfood", image: "사진/핫도그.jpg" },
+    ];
+
+    let cart = {};
+
+    function renderProducts(category = "all") {
+      const productList = document.getElementById("product-list");
+      productList.innerHTML = "";
+
+      const filtered = category === "all" ? products : products.filter(p => p.category === category);
+
+      filtered.forEach(product => {
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        slide.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>${product.price.toLocaleString()}원</p>
+          <button onclick="addToCart('${product.name}', ${product.price})">+</button>
+        `;
+        productList.appendChild(slide);
+      });
+
+      swiper.update(); // Swiper 슬라이드 다시 업데이트
+    }
+
+    function addToCart(name, price) {
+      if (cart[name]) {
+        cart[name].count++;
+      } else {
+        cart[name] = { price, count: 1 };
+      }
+      updateCart();
+    }
+
+    function removeFromCart(name) {
+      if (cart[name]) {
+        cart[name].count--;
+        if (cart[name].count <= 0) delete cart[name];
+        updateCart();
+      }
+    }
+
+    function deleteItem(name) {
+      delete cart[name];
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const totalDisplay = document.getElementById("total");
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      for (const name in cart) {
+        const { price, count } = cart[name];
+        total += price * count;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          ${name} x${count} (${(price * count).toLocaleString()}원)
+          <span class="cart-controls">
+            <button onclick="addToCart('${name}', ${price})">+</button>
+            <button onclick="removeFromCart('${name}')">-</button>
+            <button onclick="deleteItem('${name}')">삭제</button>
+          </span>
+        `;
+        cartItems.appendChild(div);
+      }
+
+      totalDisplay.textContent = total.toLocaleString();
+    }
+
+    document.querySelectorAll("nav button").forEach(button => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-category");
+        renderProducts(category);
+      });
+    });
+
+    document.getElementById("checkout-btn").addEventListener("click", () => {
+      alert("결제 완료! 감사합니다 😊");
+      cart = {};
+      updateCart();
+    });
+
+    // Swiper 초기화
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      }
+    });
+
+    // 페이지 로드 시 전체 상품 보여주기
+    renderProducts();
+  </script>
+</body>
+</html>

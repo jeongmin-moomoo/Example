@@ -1,0 +1,54 @@
+
+
+
+
+{
+  "devDependencies": {
+    "serve": "^11.2.0"
+  },
+  "main": "index.html",
+  "name": "swiper-responsive-breakpoints",
+  "scripts": {
+    "build": "echo This is a static template, there is no bundler or bundling involved!",
+    "start": "serve"
+  },
+  "tags": [
+    "swiper"
+  ]
+}
+
+let cart = {};
+
+function addToCart(name, price) {
+  if (cart[name]) {
+    cart[name].count++;
+  } else {
+    cart[name] = { price, count: 1 };
+  }
+  updateCart();
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cart-items");
+  const totalDisplay = document.getElementById("total");
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  for (const name in cart) {
+    const { price, count } = cart[name];
+    total += price * count;
+
+    const item = document.createElement("div");
+    item.innerHTML = `
+      ${name} x${count} (${(price * count).toLocaleString()}원)
+      <span class="cart-controls">
+        <button onclick="addToCart('${name}', ${price})">+</button>
+        <button onclick="removeFromCart('${name}')">-</button>
+        <button onclick="deleteItem('${name}')">삭제</button>
+      </span>
+    `;
+    cartItems.appendChild(item);
+  }
+
+  totalDisplay.textContent = total.toLocaleString();
+}
