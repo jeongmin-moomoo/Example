@@ -1,10 +1,10 @@
 const products = [
-  { name: "콜라", price: 1500, category: "drink", image: "사진/펩시.jpg" },
-  { name: "사이다", price: 1500, category: "drink", image: "사진/사이다.jpg" },
-  { name: "아이스크림", price: 2000, category: "dessert", image: "사진/와.jpg" },
-  { name: "붕어빵", price: 2500, category: "dessert", image: "사진/붕어빵.jpg" },
-  { name: "핫도그", price: 3000, category: "hotfood", image: "사진/핫도그.jpg" },
-  { name: "라면", price: 4000, category: "hotfood", image: "사진/라면.jpg" },
+  { name: "콜라", price: 1500, category: "drink", image: "pic/펩시.jpg" },
+  { name: "사이다", price: 1500, category: "drink", image: "pic/사이다.jpg" },
+  { name: "아이스크림", price: 2000, category: "dessert", image: "pic/와.jpg" },
+  { name: "붕어빵", price: 2500, category: "dessert", image: "pic/붕어빵.jpg" },
+  { name: "핫도그", price: 3000, category: "hotfood", image: "pic/핫도그.jpg" },
+  { name: "라면", price: 4000, category: "hotfood", image: "pic/라면.jpg" },
 ];
 
 
